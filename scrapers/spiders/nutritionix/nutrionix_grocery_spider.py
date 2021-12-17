@@ -17,7 +17,7 @@ class NutritionixGrocerySpider(scrapy.Spider):
 
     def parse(self, response):
         driver = response.request.meta['driver']
-        brand_elements = driver.find_elements(by='xpath', value='//body')
+        brand_elements = driver.find_elements(by='xpath', value='//p[@class="ng-binding"]')
         print([_ for _ in brand_elements])
         # print(brand_elements)
         # BrandItem.add_value('name', '//p[@class="ng-binding"]')
