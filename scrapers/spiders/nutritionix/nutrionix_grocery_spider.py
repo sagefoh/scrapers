@@ -32,18 +32,12 @@ class NutritionixGrocerySpider(scrapy.Spider):
         brand_path = '//p[@class="ng-binding"]'
         page_path = '//pre[@class="text-center ng-binding"]'
 
-        page_text = driver.find_elements(by='xpath', value=page_path)
-        print('\n\n\n\n\n\n\n')
-
-        print(len(page_text))
-
-        print('\n\n\n\n\n\n\n')
+        page_text = driver.find_elements(by='xpath', value=page_path)[0].get_attribute('innerHTML')
 
         max_item = int(page_text.split(' ')[-1])
 
         print('NutriSpider has started crawling...')
 
-        print('\n\n\n\n\n\n\n\n')
 
         while True:
             link_elements = driver.find_elements(by='xpath', value=link_path)
